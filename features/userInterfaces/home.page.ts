@@ -35,9 +35,6 @@ class homePage {
         return $('//android.widget.EditText[@resource-id="com.cristhian.calculadorcredito:id/etInteres"]')
     }
 
-
-
-
     public get closeAddButton() {
         return $('//android.widget.ImageButton[@content-desc="Interstitial close button"]')
     }
@@ -76,13 +73,6 @@ class homePage {
         await (await this.loanValueSubtitle).waitForEnabled({ timeout: 5000 });
 
     }
-
-
-
-
-
-
-
 
 
 
