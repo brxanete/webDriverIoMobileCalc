@@ -27,7 +27,6 @@ class homePage {
         return $('//android.widget.TextView[@resource-id="com.cristhian.calculadorcredito:id/tvInteres"]')
     }
 
-    
     public get periodInterestList() {
         return $('//android.widget.Spinner[@resource-id="com.cristhian.calculadorcredito:id/spTipoInteres"]')
     }
