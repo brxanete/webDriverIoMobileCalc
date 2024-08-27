@@ -67,7 +67,7 @@ export const config: Options.Testrunner = {
         "appium:platformVersion": "14.0",
         "appium:deviceName": "Whatever",
         "appium:automationName": "UiAutomator2",
-        "appium:app": "C:\\RepoBryan\\webDriverIoMobileCalc\\features\\Calculador de Crédito v3.9.apk",
+        "appium:app": "C:\\Repo\\webDriverIoMobileCalc\\features\\Calculador de Crédito v3.9.apk",
         "appium:autoGrantPermissions": true,
         "appium:unicodeKeyboard": true,
         "appium:noReset": false

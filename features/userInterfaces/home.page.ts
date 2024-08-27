@@ -38,17 +38,33 @@ class homePage {
     public get closeAddButton() {
         return $('//android.widget.ImageButton[@content-desc="Interstitial close button"]')
     }
+    public get closeAddButton2() {
+        return $('//android.widget.Button')
+    }
 
     
     async closeAdd() {
         try {
-            await (await this.closeAddButton).waitForDisplayed({ timeout: 10000 });
-
-            if (await this.closeAddButton.isEnabled()) {
-                await this.closeAddButton.click();
+            const closeButtons = [this.closeAddButton, this.closeAddButton2]; 
+            let buttonFound = false;
+    
+            for (const button of closeButtons) {
+                try {
+                    await button.waitForDisplayed({ timeout: 10000 });
+                    if (await button.isEnabled()) {
+                        await button.click();
+                    
+                        buttonFound = true;
+                        break;
+                    }
+                } catch (error) {
+                }
+            }
+            if (!buttonFound) {
+                console.log('Ningún botón de cerrar anuncio está presente, continuando con la ejecución.');
             }
         } catch (error) {
-            console.log('El botón de cerrar anuncio no está presente, continuando con la ejecución.');
+            console.log('Error al intentar cerrar el anuncio:', error);
         }
     }
 
