@@ -39,11 +39,19 @@ class homePage {
         return $('//android.widget.ImageButton[@content-desc="Interstitial close button"]')
     }
 
+    
     async closeAdd() {
-        (await (this.closeAddButton)).waitForEnabled({ timeout: 5000 });
-        (await (this.closeAddButton)).click();
+        try {
+            await (await this.closeAddButton).waitForDisplayed({ timeout: 10000 });
 
+            if (await this.closeAddButton.isEnabled()) {
+                await this.closeAddButton.click();
+            }
+        } catch (error) {
+            console.log('El botón de cerrar anuncio no está presente, continuando con la ejecución.');
+        }
     }
+
 
 
     async validateMenuButton() {
